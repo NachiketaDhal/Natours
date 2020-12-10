@@ -1,0 +1,50 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    /* force inheritance as box-sizing is not inheritable by default */
+    box-sizing: inherit;
+}
+
+html {
+    /* root font-size */
+    /* font-size: 10px; */
+    font-size: 62.5%;
+    /* To apply the browser settings we need to use '%' as the unit instead of 'px' '10/16 * 100%' */
+
+
+    // @include respond-phone {
+    //     font-size: 37%;
+    // }
+
+    @include respond(tab-land) {
+        font-size: 56.25%;
+    }
+
+    @include respond(tab-port) {
+        font-size: 50%; // 1rem = 8px
+    }
+
+    // @include respond(phone) {
+    //     font-size: 37%;
+    // }
+
+    @include respond(big-desktop) {
+        font-size: 70%;
+    }
+}
+
+body{
+    box-sizing: border-box;
+    padding: 3rem;
+
+    @include respond(tab-port) {
+        padding: 0;
+    }
+}
+
+::selection {
+    background-color: $color-primary;
+    color: $color-white;
+}
